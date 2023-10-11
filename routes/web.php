@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/db', function(){return view('db');});
     Route::get('/home',[HomeController::class, 'index']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::resource('student', StudentController::class);
+    Route::resource('/home', StudentController::class);
 });
