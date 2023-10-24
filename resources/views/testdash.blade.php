@@ -95,7 +95,7 @@
                         </thead>
                         <tbody>
                 @if(!empty($data) && (is_array($data) || $data instanceof Countable) && count($data)>0)
-                    @foreach ($data as $row)
+                    @foreach ($softDrinkData as $row)
                         <tr>
                             <td>{{ $row->food_menu }}</td>
                             <td>{{ $row->food_price }}</td>
@@ -143,7 +143,7 @@
                         </thead>
                         <tbody>
                 @if(!empty($data) && (is_array($data) || $data instanceof Countable) && count($data)>0)
-                    @foreach ($data as $row)
+                    @foreach ($lunchData as $row)
                         <tr>
                             <td>{{ $row->food_menu }}</td>
                             <td>{{ $row->food_price }}</td>

@@ -34,6 +34,17 @@
                             <input type="text" name="food_price" class="form-control"/>
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-lable-form">Category</label>
+                            <div class="col-sm-10">
+                                <select name="category" class="form-control">
+                                    <option value="soft_drink">Soft Drink</option>
+                                    <option value="lunch">Lunch</option>
+                                </select>
+                            </div>
+                     </div>
+
                     <div class="text-center">
                         <input type="submit" class="btn btn-primary" value="Add" />
                     </div>

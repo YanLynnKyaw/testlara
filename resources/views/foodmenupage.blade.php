@@ -20,7 +20,7 @@
                 <div class="food_menu">
                     <h4>Soft Drink</h4>
                     <ul>
-                        @foreach($getrecord as $record)
+                        @foreach($softDrinkData as $record)
                             <li>{{ $record->food_menu }}</li>
                         @endforeach
                     </ul>
@@ -36,7 +36,7 @@
                 <div class="food_price">
                     <h4>Price</h4>
                     <ul>
-                        @foreach($getrecord as $record)
+                        @foreach($softDrinkData as $record)
                             <li>{{ $record->food_price }}</li>
                         @endforeach
                     </ul>
@@ -54,7 +54,9 @@
                 <div class="food_menu">
                     <h4>Lunch</h4>
                     <ul>
-                        <li>Shan Noodle</li>
+                        @foreach($lunchData as $record)
+                            <li>{{ $record->food_menu }}</li>
+                        @endforeach
                         <li>Fried Rice</li>
                         <li>Kyay Ohh</li>
                         <li>Pashue Fried Rice</li>
@@ -63,7 +65,9 @@
                 <div class="food_price">
                     <h4>Price</h4>
                     <ul>
-                        <li>3000 KS</li>
+                        @foreach($lunchData as $record)
+                            <li>{{ $record->food_price }}</li>
+                        @endforeach
                         <li>2000 KS</li>
                         <li>3000 KS</li>
                         <li>2000 KS</li>

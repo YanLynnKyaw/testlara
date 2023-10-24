@@ -11,12 +11,21 @@ class FoodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    /*public function index()
     {
         $data = Food::latest()->paginate(5);
 
         return view ('testdash', compact('data'))->with('i', (request()->input('page',1) - 1)*5);
+    }*/
+    public function index()
+    {
+        $softDrinkData = Food::where('category', 'soft_drink')->get();
+        $lunchData = Food::where('category', 'lunch')->get();
+        $data = Food::latest()->paginate(5);
+    
+        return view('testdash', compact('softDrinkData', 'lunchData', 'data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -38,6 +47,7 @@ class FoodController extends Controller
         $food = new Food;
         $food->food_menu    =   $request->food_menu;
         $food->food_price   =   $request->food_price;
+        $food->category = $request->category;
 
         $food->save();
 
@@ -76,6 +86,7 @@ class FoodController extends Controller
         $food = Food::find($request->hidden_id);
         $food->food_menu = $request->food_menu;
         $food->food_price = $request->food_price;
+        $food->category = $request->category; 
         $food->save();
 
         return redirect()->route('food.index')->with('success','A Menu has been updated');
