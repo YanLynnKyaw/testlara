@@ -9,6 +9,22 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::all(); // Assuming you have a User model
+        return view('users', compact('users'));
+    }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $user->delete();
+            return redirect()->route('users.index')->with('success', 'User deleted successfully');
+        }
+        return redirect()->route('users.index')->with('error', 'User not found');
+    }
+
     public function register()
     {
         return view ('register');

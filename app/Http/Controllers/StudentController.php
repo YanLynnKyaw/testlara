@@ -15,7 +15,7 @@ class StudentController extends Controller
         //
         $data = Student::latest()->paginate(5);
         
-        return view ('index', compact('data'))->with('i', (request()->input('page',1) - 1)*5);
+        return view ('testdash', compact('data'))->with('i', (request()->input('page',1) - 1)*5);
     }
 
     /**
