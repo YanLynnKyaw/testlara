@@ -13,23 +13,30 @@
 <body>
     
     <div class="sidebar">
-        <a href="#" class="logo">
+        <a href="{{ route ('dashboard') }}" class="logo">
             <i class='bx bxl-mailchimp'></i>
             <div class="logo-name"><span>Chimp</span>Pro</div>
         </a>
         <ul class="side-menu">
-            <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="#"><i class='bx bx-group' ></i>Student Create</a></li>
-            <li><a href="#"><i class='bx bxs-user-detail' ></i>Users Management</a></li>
+            <li><a href="{{ route('dashboard') }}" data-menu="dashboard" class="{{ Request::is('dashboard*') ? 'active' : '' }}"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <!-- <li><a href="#"><i class='bx bx-group' ></i>Student Create</a></li> -->
+            <li><a href="{{ route ('users.index')}}" data-menu="users-management" class="{{ Request::is('users*') ? 'active' : '' }}"><i class='bx bxs-user-detail' ></i>Users Management</a></li>
             <!-- <li><a href="#"><i class='bx bx-cog bx-spin' ></i>Setting</a></li> -->
             <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
         <ul class="side-menu">
-            <li>
+            <!-- <li>
                 <a href="#" class="logout">
                     <i class='bx bx-log-out' ></i>
                     Logout
                 </a>
+            </li> -->
+            <li class="de">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="logout" type="submit"> <i class='bx bx-log-out' ></i>Logout</button>
+            </form>  
             </li>
         </ul>
 
@@ -63,7 +70,7 @@
         <main>
             <div class="header">
                 <div class="left">
-                    <h1>Dashboard | Welcome,{{ Auth::user()->name }}</h1>
+                    <h1>Dashboard | Welcome {{ Auth::user()->name }}</h1>
                 </div>
                 <a href="#" class="report">
                     <i class='bx bx-cloud-download'></i>
@@ -78,19 +85,19 @@
                         <h3>Soft Drink</h3>
                         <!-- <i class='bx bx-filter'></i>
                         <i class='bx bx-search'></i> -->
-                        <a href="{{ route('food.create') }}" class="btn btn-success btn-sm float-end">Add</a>
+                        <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
                     
-                        <form action="{{ route('logout') }}" method="POST">
+                        <!-- <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm float-end me-3" type="submit">Logout</button>
-                        </form>
+                        </form> -->
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>food_menu</th>
-                                <th>food_price</th>
+                                <th><h2>Food_Menu</h2></th>
+                                <th><h2>Food_Price</h2></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,13 +106,13 @@
                         <tr>
                             <td>{{ $row->food_menu }}</td>
                             <td>{{ $row->food_price }}</td>
-                            <td>
+                            <td class="butt">
                                 <form action="{{ route('food.destroy', $row->id ) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('food.show', $row->id ) }}" class="btn btn-primary btn-sm m-2">View</a>
-                                    <a href="{{ route('food.edit', $row->id ) }}" class="btn btn-warning btn-sm m-2">Edit</a>
-                                    <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                                    <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
+                                    <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
+                                    <input type="submit" class="newbtn1" value="Delete">
                                 </form>
                             </td>
                         </tr>
@@ -126,19 +133,19 @@
                     <div class="header">
                         <i class='bx bx-receipt'></i>
                         <h3>Lunch</h3>
-                        <a href="{{ route('food.create') }}" class="btn btn-success btn-sm float-end">Add</a>
+                        <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
                     
-                        <form action="{{ route('logout') }}" method="POST">
+                        <!-- <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm float-end me-3" type="submit">Logout</button>
-                        </form>
+                        </form> -->
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>food_menu</th>
-                                <th>food_price</th>
+                                <th><h2>Food_Menu</h2></th>
+                                <th><h2>Food_Price</h2></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -147,13 +154,13 @@
                         <tr>
                             <td>{{ $row->food_menu }}</td>
                             <td>{{ $row->food_price }}</td>
-                            <td>
+                            <td class="butt">
                                 <form action="{{ route('food.destroy', $row->id ) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('food.show', $row->id ) }}" class="btn btn-primary btn-sm m-2">View</a>
-                                    <a href="{{ route('food.edit', $row->id ) }}" class="btn btn-warning btn-sm m-2">Edit</a>
-                                    <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                                    <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
+                                    <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
+                                    <input type="submit" class="newbtn1" value="Delete">
                                 </form>
                             </td>
                         </tr>
@@ -173,7 +180,13 @@
         </main>
 
     </div>
-
+    <script>
+        const dashboardLink = document.querySelector('.sidebar .side-menu li a[href="{{ route('dashboard') }}"]');
+        
+        dashboardLink.addEventListener('click', (event) => {
+            activateSidebarLinks();
+        });
+    </script>
     <script src="{{ url('backend/js/app2.js')}}"></script>
 </body>
 </html>

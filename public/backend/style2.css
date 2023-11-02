@@ -16,6 +16,8 @@
     --light-warning: #FFF2C6;
     --success: #388E3C;
     --light-success: #BBF7D0;
+    --btn1:#363949;
+    --btn2:#1a1f24;
 }
 
 *{
@@ -48,7 +50,9 @@ html{
 body.dark{
     --light: #181a1e;
     --grey: #25252c;
-    --dark: #fbfbfb
+    --dark: #fbfbfb;
+    --btn1:#fbfbfb;
+    --btn2:#abadb4;
 }
 
 body{
@@ -164,6 +168,10 @@ body{
     width: calc(48px - (4px * 2));
     transition: all 0.3s ease;
 }
+.sidebar.close .side-menu li button{
+    width: calc(48px - (4px * 2));
+    transition: all 0.3s ease;
+}
 
 .sidebar .side-menu li a .bx{
     min-width: calc(60px - ((4px + 6px) * 2));
@@ -172,8 +180,107 @@ body{
     justify-content: center;
 }
 
+.sidebar .side-menu li .bx{
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: center;
+}
+
 .sidebar .side-menu li a.logout{
     color: var(--danger);
+}
+
+.sidebar .side-menu li .logout{
+    color: var(--danger);
+    border: none;
+    color: var(--danger);
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.newbtn{
+   
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: 1.5px solid var(--btn1);
+    border-radius: 5px;
+    color: var(--btn1);
+    background: var(--light);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 6px 10px;
+    text-align:center;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    
+    
+}
+.newbtn:hover{
+    color: #f6f6f9;
+    background: #3876BF;
+}
+
+.newbtn1{
+   
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: 1.5px solid var(--btn1);
+    border-radius: 5px;
+    color: var(--btn1);
+    background: var(--light);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 6px 10px;
+    text-align:center;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    
+    
+}
+.newbtn1:hover{
+    color: #f6f6f9;
+    background: #bf3f38;
+}
+
+.newbtn2{
+   
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: 1.5px solid var(--btn2);
+    border-radius: 5px;
+    color: var(--btn1);
+    background: var(--light);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 6px 10px;
+    text-align:center;
+    transition-duration: .15s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    
+    
+}
+.newbtn2:hover{
+    color: #f6f6f9;
+    background: #7bbf38;
 }
 
 .content{

@@ -66,4 +66,25 @@ class AuthController extends Controller
 
         return redirect()->route('login');
     }
+    public function create()
+    {
+        return view('create-user');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User created successfully');
+    }
+
 }

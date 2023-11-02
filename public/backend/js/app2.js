@@ -1,14 +1,30 @@
 const sideLinks = document.querySelectorAll('.sidebar .side-menu li a:not(.logout)');
 
 sideLinks.forEach(item => {
-    const li = item.parentElement;
     item.addEventListener('click', () => {
+        const clickedMenu = item.getAttribute('data-menu');
+        
+        // Remove "active" class from all links
         sideLinks.forEach(i => {
             i.parentElement.classList.remove('active');
-        })
-        li.classList.add('active');
-    })
+        });
+
+        // Add "active" class to the clicked link
+        item.parentElement.classList.add('active');
+    });
 });
+
+// const sideLinks = document.querySelectorAll('.sidebar .side-menu li a:not(.logout)');
+
+// sideLinks.forEach(item => {
+//     const li = item.parentElement;
+//     item.addEventListener('click', () => {
+//         sideLinks.forEach(i => {
+//             i.parentElement.classList.remove('active');
+//         })
+//         li.classList.add('active');
+//     })
+// });
 
 const menuBar = document.querySelector('.content nav .bx.bx-menu');
 const sideBar = document.querySelector('.sidebar');
