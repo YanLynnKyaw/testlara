@@ -39,8 +39,9 @@
                         <label class="col-sm-2 col-lable-form">Category</label>
                             <div class="col-sm-10">
                                 <select name="category" class="form-control">
-                                    <option value="soft_drink">Soft Drink</option>
-                                    <option value="lunch">Lunch</option>
+                                    <option value="Soft Drink">Soft Drink</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Breakfast">BreakFast</option>
                                 </select>
                             </div>
                      </div>

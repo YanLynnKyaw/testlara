@@ -74,7 +74,11 @@
                 </div>
                 <a href="#" class="report">
                     <i class='bx bx-cloud-download'></i>
-                    <span>Download CSV</span>
+                    <span>
+                        
+                        Add Food Menu Title
+                        
+                    </span>
                 </a>
             </div>
         
@@ -151,6 +155,47 @@
                         <tbody>
                 @if(!empty($data) && (is_array($data) || $data instanceof Countable) && count($data)>0)
                     @foreach ($lunchData as $row)
+                        <tr>
+                            <td>{{ $row->food_menu }}</td>
+                            <td>{{ $row->food_price }}</td>
+                            <td class="butt">
+                                <form action="{{ route('food.destroy', $row->id ) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
+                                    <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
+                                    <input type="submit" class="newbtn1" value="Delete">
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td  class="text-center">No Data Found</td>
+                    </tr>
+                @endif
+                        </tbody>
+                    </table>
+                </div>   
+            </div>
+
+            <div class="bottom-data">
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-receipt'></i>
+                        <h3>BreakFast</h3>
+                        <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><h2>Food_Menu</h2></th>
+                                <th><h2>Food_Price</h2></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    @if(!empty($data) && (is_array($data) || $data instanceof Countable) && count($data)>0)
+                    @foreach ($breakfastData as $row)
                         <tr>
                             <td>{{ $row->food_menu }}</td>
                             <td>{{ $row->food_price }}</td>

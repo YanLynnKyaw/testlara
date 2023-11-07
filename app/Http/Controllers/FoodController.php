@@ -19,11 +19,12 @@ class FoodController extends Controller
     }*/
     public function index()
     {
-        $softDrinkData = Food::where('category', 'soft_drink')->get();
-        $lunchData = Food::where('category', 'lunch')->get();
+        $softDrinkData = Food::where('category', 'Soft Drink')->get();
+        $lunchData = Food::where('category', 'Lunch')->get();
+        $breakfastData = Food::where('category', 'Breakfast')->get();
         $data = Food::latest()->paginate(5);
     
-        return view('testdash', compact('softDrinkData', 'lunchData', 'data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('testdash', compact('softDrinkData', 'lunchData', 'breakfastData','data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 

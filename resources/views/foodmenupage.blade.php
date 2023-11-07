@@ -17,21 +17,29 @@
         <div class="container">
             <div class="row">
             
-                <div class="food_menu">
-                    <h4>Soft Drink</h4>
+                <!-- <div class="food_menu">
+                    @foreach ($softDrinkData as $record)
+                    <h4>
+                        {{ $record->category }}
+                    </h4>
+                    @endforeach
                     <ul>
                         @foreach($softDrinkData as $record)
                             <li>{{ $record->food_menu }}</li>
                         @endforeach
                     </ul>
-                    <!-- <ul>
-                        @if(isset($newMenuItem) && $newMenuItem !== null)
-                        <li>{{ $newMenuItem->food_menu }}</li>
-                        @else
-                        <li>Default Menu Item</li>
+                </div> -->
+                <div class="food_menu">
+                    @php $firstCategory = true @endphp
+                    @foreach ($softDrinkData as $record)
+                        @if ($firstCategory)
+                            <h4>{{ $record->category }}</h4>
+                            <ul>
+                            @php $firstCategory = false @endphp
                         @endif
-                        <li>Ice Tea</li>
-                    </ul>  -->
+                        <li>{{ $record->food_menu }}</li>
+                    @endforeach
+                    </ul>
                 </div>
                 <div class="food_price">
                     <h4>Price</h4>
@@ -40,18 +48,10 @@
                             <li>{{ $record->food_price }}</li>
                         @endforeach
                     </ul>
-                    <!-- <ul>
-                        @if(isset($newMenuItem) && $newMenuItem !== null)
-                        <li>{{ $newMenuItem->food_price }}</li>
-                        @else
-                        <li>500 KS</li>
-                        @endif
-                        <li>800 KS</li>
-                    </ul> -->
                 </div>
                
                 
-                <div class="food_menu">
+                <!-- <div class="food_menu">
                     <h4>Lunch</h4>
                     <ul>
                         @foreach($lunchData as $record)
@@ -61,6 +61,18 @@
                         <li>Kyay Ohh</li>
                         <li>Pashue Fried Rice</li>
                     </ul>
+                </div> -->
+                <div class="food_menu">
+                    @php $firstCategory = true @endphp
+                    @foreach ($lunchData as $record)
+                        @if ($firstCategory)
+                            <h4>{{ $record->category }}</h4>
+                            <ul>
+                            @php $firstCategory = false @endphp
+                        @endif
+                        <li>{{ $record->food_menu }}</li>
+                    @endforeach
+                    </ul>
                 </div>
                 <div class="food_price">
                     <h4>Price</h4>
@@ -68,30 +80,38 @@
                         @foreach($lunchData as $record)
                             <li>{{ $record->food_price }}</li>
                         @endforeach
-                        <li>2000 KS</li>
-                        <li>3000 KS</li>
-                        <li>2000 KS</li>
                     </ul>
                 </div>
             </div>
             
             <div class="row">
-                <div class="food_menu">
-                    <h4>Soft Drink</h4>
+                <!-- <div class="food_menu">
+                    <h4>Break Fast</h4>
                     <ul>
-                        <li>Ice Coffee</li>
-                        <li>Coffee</li>
-                        <li>Milk</li>
+                        @foreach($breakfastData as $record)
+                            <li>{{ $record->food_menu }}</li>
+                        @endforeach
                         <li>Ice Tea</li>
+                    </ul>
+                </div> -->
+                <div class="food_menu">
+                    @php $firstCategory = true @endphp
+                    @foreach ($breakfastData as $record)
+                        @if ($firstCategory)
+                            <h4>{{ $record->category }}</h4>
+                            <ul>
+                            @php $firstCategory = false @endphp
+                        @endif
+                        <li>{{ $record->food_menu }}</li>
+                    @endforeach
                     </ul>
                 </div>
                 <div class="food_price">
                     <h4>Price</h4>
                     <ul>
-                        <li>1000 KS</li>
-                        <li>800 KS</li>
-                        <li>1000 KS</li>
-                        <li>800 KS</li>
+                        @foreach($breakfastData as $record)
+                            <li>{{ $record->food_price }}</li>
+                        @endforeach
                     </ul>
                 </div>
                 

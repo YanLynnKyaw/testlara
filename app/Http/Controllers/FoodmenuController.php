@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class FoodmenuController extends Controller
 {
     public function index(){
-        $softDrinkData = Food::where('category', 'soft_drink')->get();
-        $lunchData = Food::where('category', 'lunch')->get();
-
-        return view('foodmenupage', compact('softDrinkData', 'lunchData'));
+        $softDrinkData = Food::where('category', 'Soft Drink')->get();
+        $lunchData = Food::where('category', 'Lunch')->get();
+        $breakfastData = Food::where('category', 'Breakfast')->get();
+        return view('foodmenupage', compact('softDrinkData', 'lunchData','breakfastData'));
     }
     // public function index(){
 
