@@ -40,12 +40,18 @@ Route::group(['middleware' => 'guest'], function(){
 
 });
 
+Route::group(['middleware' => ['auth', 'can:ed_de'], 'as' => 'admin'], function(){
+    Route::get('/db', function(){return view('db');});
+    Route::get('/users',[AuthController::class,'index'])->name('users.index');
+    
+});
+
 Route::group(['middleware' => 'auth'], function(){
 
     Route::resource('roles', RoleController::class);
 
 
-    Route::get('/db', function(){return view('db');});
+    
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::resource('food', FoodController::class);
@@ -53,14 +59,14 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/dashboard',[FoodController::class, 'index'])->name('dashboard');
 
 
-    Route::get('/users', [UsersController::class,'index'])->name('users.index');
+    
 
     Route::delete('/user/{id}', [UsersController::class,'destroy'])->name('users.delete');
 
-    Route::get('/users',[AuthController::class,'index'])->name('users.index');
+    Route::get('/users',[AuthController::class,'index'])->name('users.index')->middleware('can:ed_de');
     Route::delete('/users/{id}', [AuthController::class,'destroy'])->name('users.delete');
 
-    Route::get('/users', [AuthController::class,'index'])->name('users.index');
+
     Route::get('/users/create', [AuthController::class,'create'])->name('users.create');
     Route::post('/users', [AuthController::class,'store'])->name('users.store');
 
