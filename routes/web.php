@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\FoodmenuController;
+use App\Http\Controllers\ExcelController;
+use App\Models\Food;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +31,7 @@ Route::get('/foodmenu', function () {
 });
 
 Route::get('/foodmenu', [FoodmenuController::class, 'index']);
+Route::get('/download-excel', [ExcelController::class, 'downloadExcel'])->name('excel.download');
 
 Route::group(['middleware' => 'guest'], function(){
     Route::get('/register',[AuthController::class, 'register']) -> name('register');

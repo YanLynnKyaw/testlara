@@ -72,11 +72,11 @@
                 <div class="left">
                     <h1>Dashboard | Welcome {{ Auth::user()->name }}</h1>
                 </div>
-                <a href="#" class="report">
+                <a href="{{ route('excel.download') }}" class="report">
                     <i class='bx bx-cloud-download'></i>
                     <span>
                         
-                        Add Food Menu Title
+                        Download Food Menu
                         
                     </span>
                 </a>
