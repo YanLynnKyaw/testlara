@@ -42,14 +42,11 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
 
-    // Route::get('/register',[AuthController::class, 'register']) -> name('register');
-    // Route::post('/register',[AuthController::class, 'registerPost']) -> name('register');
+    Route::resource('roles', RoleController::class);
+
 
     Route::get('/db', function(){return view('db');});
-    // Route::get('/home',[HomeController::class, 'index']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
-    // Route::resource('student', StudentController::class);
-    // Route::resource('/home', StudentController::class);
 
     Route::resource('food', FoodController::class);
     Route::resource('/home', FoodController::class);

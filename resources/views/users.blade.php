@@ -100,7 +100,9 @@
                                     <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit">Delete</button>
+                                        @if(auth()->user()->can('ed_de'))
+                                            <button type="submit">Delete</button>
+                                        @endif
                                     </form>
                                 </td>
                             </tr>    

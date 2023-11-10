@@ -40,7 +40,10 @@ class FoodController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
+        if(auth()->user()->can('ed_de')){
+
+        
         $request->validate([
             'food_menu'     =>  'required',
             'food_price'    =>  'required'
@@ -56,6 +59,8 @@ class FoodController extends Controller
         // Log::info('Data added: ' . $food); 
         
         return redirect()->route('food.index')->with('success', 'Food Menu has been added');
+        }
+        return abort (403);
     }
 
     /**

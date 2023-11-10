@@ -89,8 +89,9 @@
                         <h3>Soft Drink</h3>
                         <!-- <i class='bx bx-filter'></i>
                         <i class='bx bx-search'></i> -->
+                        @if(auth()->user()->can('ed_de'))
                         <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
-                    
+                        @endif
                         <!-- <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -115,8 +116,11 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
-                                    <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
-                                    <input type="submit" class="newbtn1" value="Delete">
+                                    @if(auth()->user()->can('ed_de'))
+                                        <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
+                                        <input type="submit" class="newbtn1" value="Delete">
+                                    @endif
+                                    
                                 </form>
                             </td>
                         </tr>
@@ -137,8 +141,10 @@
                     <div class="header">
                         <i class='bx bx-receipt'></i>
                         <h3>Lunch</h3>
-                        <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
-                    
+
+                        @if(auth()->user()->can('ed_de'))
+                            <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
+                        @endif
                         <!-- <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -163,8 +169,10 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
-                                    <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
-                                    <input type="submit" class="newbtn1" value="Delete">
+                                    @if(auth()->user()->can('ed_de'))
+                                        <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
+                                        <input type="submit" class="newbtn1" value="Delete">
+                                    @endif
                                 </form>
                             </td>
                         </tr>
@@ -184,7 +192,10 @@
                     <div class="header">
                         <i class='bx bx-receipt'></i>
                         <h3>BreakFast</h3>
-                        <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
+
+                        @if(auth()->user()->can('ed_de'))
+                            <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
+                        @endif
                     </div>
                     <table>
                         <thead>
@@ -204,8 +215,11 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
-                                    <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
-                                    <input type="submit" class="newbtn1" value="Delete">
+                                    
+                                    @if(auth()->user()->can('ed_de'))
+                                        <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
+                                        <input type="submit" class="newbtn1" value="Delete">
+                                    @endif
                                 </form>
                             </td>
                         </tr>
