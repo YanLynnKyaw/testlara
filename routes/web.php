@@ -43,13 +43,9 @@ Route::group(['middleware' => 'guest'], function(){
 
 });
 
-Route::group(['middleware' => ['auth', 'can:ed_de'], 'as' => 'admin'], function(){
-    Route::get('/db', function(){return view('db');});
-    Route::get('/users',[AuthController::class,'index'])->name('users.index');
-    
-});
-
 Route::group(['middleware' => 'auth'], function(){
+
+    Route::put('/users/{user}/update-role', [AuthController::class, 'updateRole'])->name('users.updateRole');
 
     Route::resource('roles', RoleController::class);
 

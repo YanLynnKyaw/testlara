@@ -88,6 +88,7 @@
                             <tr>
                                 <th><h2>User Name</h2></th>
                                 <th><h2>User Mail</h2></th>
+                                <th><h2>Role</h2></th>
                                 <th><h2>Action</h2></th>
                             </tr>
                         </thead>
@@ -97,11 +98,28 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
+                                    <ul>
+                                        @foreach($user->getRoleNames() as $role)
+                                        
+                                            <li style="color: {{ $role === 'admin' ? 'brown' : ($role === 'editor' ? 'green' : 'black') }}">{{ $role }}
+                                            <form action="{{ route('users.updateRole', $user->id) }}" method="POST" style="display: inline;" class="dropdown">
+                                                @csrf
+                                                @method('PUT')
+                                                <select name="role" onchange="this.form.submit()">
+                                                    <option value="admin" {{ $user->hasRole('admin') ? 'selected' : '' }}>Admin</option>
+                                                    <option value="editor" {{ $user->hasRole('editor') ? 'selected' : '' }}>Editor</option>
+                                                </select>
+                                            </form>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
                                     <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         @if(auth()->user()->can('ed_de'))
-                                            <button type="submit">Delete</button>
+                                            <button type="submit" class="newbtn1">Delete</button>
                                         @endif
                                     </form>
                                 </td>
@@ -114,6 +132,7 @@
         </main>
 
     </div>
+
     <script src="{{ url('backend/js/app2.js')}}"></script>
 </body>
 </html>
