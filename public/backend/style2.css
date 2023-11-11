@@ -735,3 +735,38 @@ body{
     }
 
 }
+
+
+.dropdown-container {
+    position: relative;
+}
+
+.roles-list {
+    list-style: none;
+    padding: 0;
+}
+
+.roles-list li {
+    margin-bottom: 10px;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown summary {
+    cursor: pointer;
+}
+
+.dropdown form {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1;
+}
+
+.dropdown:hover form {
+    display: block;
+}

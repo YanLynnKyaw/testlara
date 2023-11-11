@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::resource('roles', RoleController::class);
 
+    Route::get('/db', function(){return view('db');});
 
     
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');

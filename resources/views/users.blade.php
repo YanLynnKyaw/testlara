@@ -97,7 +97,7 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>
+                                <!-- <td>
                                     <ul>
                                         @foreach($user->getRoleNames() as $role)
                                         
@@ -113,7 +113,33 @@
                                             </li>
                                         @endforeach
                                     </ul>
+                                </td> -->
+
+                                <td class="dropdown-container">
+                                    <ul class="roles-list">
+                                        @foreach($user->getRoleNames() as $role)
+                                            <li>
+                                                <details class="dropdown">
+                                                    <summary role="button" class="button">
+                                                        <a style="color: {{ $role === 'admin' ? 'brown' : ($role === 'editor' ? 'green' : 'black') }}">
+                                                            {{ $role }}
+                                                        </a>
+                                                    </summary>
+                                                    <form action="{{ route('users.updateRole', $user->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <select name="role" onchange="this.form.submit()">
+                                                            <option value="admin" {{ $user->hasRole('admin') ? 'selected' : '' }}>Admin</option>
+                                                            <option value="editor" {{ $user->hasRole('editor') ? 'selected' : '' }}>Editor</option>
+                                                        </select>
+                                                    </form>
+                                                </details>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </td>
+
+
                                 <td>
                                     <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline;">
                                         @csrf

@@ -115,7 +115,7 @@
                     </ul>
                 </div>
                 
-                <div class="food_menu">
+                <!-- <div class="food_menu">
                     <h4>Lunch</h4>
                     <ul>
                         <li>Shan Noodle</li>
@@ -132,7 +132,7 @@
                         <li>3000 KS</li>
                         <li>2000 KS</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
         
