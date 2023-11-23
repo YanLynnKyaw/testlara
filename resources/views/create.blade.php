@@ -16,38 +16,36 @@
 
 @endif
 
-    <div class="card">
+   
+     <div class="card">
         <div class="card-header">
             <div class="card-body">
-                <form action="{{ route('student.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('food.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3" >
-                        <label class="col-sm-2 col-lable-form">Student Name</label>
+                        <label class="col-sm-2 col-lable-form">Food Menu</label>
                         <div class="col-sm-10">
-                            <input type="text" name="student_name" class="form-control"/>
+                            <input type="text" name="food_menu" class="form-control"/>
                         </div>
                     </div>
                     <div class="row mb-3" >
-                        <label class="col-sm-2 col-lable-form">Student Email</label>
+                        <label class="col-sm-2 col-lable-form">Food Price</label>
                         <div class="col-sm-10">
-                            <input type="text" name="student_email" class="form-control"/>
+                            <input type="text" name="food_price" class="form-control"/>
                         </div>
                     </div>
-                    <div class="row mb-4" >
-                        <label class="col-sm-2 col-lable-form">Student Gender</label>
-                        <div class="col-sm-10">
-                            <select name="student_gender" class="form-control">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mb-4" >
-                        <label class="col-sm-2 col-lable-form">Student Image</label>
-                        <div class="col-sm-10">
-                            <input type="file" name="student_image"/>
-                        </div>
-                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-lable-form">Category</label>
+                            <div class="col-sm-10">
+                                <select name="category" class="form-control">
+                                    <option value="Soft Drink">Soft Drink</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Breakfast">BreakFast</option>
+                                </select>
+                            </div>
+                     </div>
+
                     <div class="text-center">
                         <input type="submit" class="btn btn-primary" value="Add" />
                     </div>

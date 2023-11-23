@@ -2,43 +2,27 @@
 
 @section ('content')
 
+
 <div class="card">
-    <div class="card-header">Edit Student</div>
+    <div class="card-header">Edit Food Menu</div>
     <div class="card-body">
-        <form action="{{ route('student.update', $student->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('food.update', $food->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method ('PUT')
             <div class="row mb-3" >
-                <label class="col-sm-2 col-lable-form">Student Name</label>
+                <label class="col-sm-2 col-lable-form">Food Menu</label>
                 <div class="col-sm-10">
-                    <input type="text" name="student_name" class="form-control" value="{{ $student->student_name }}"/>
+                    <input type="text" name="food_menu" class="form-control" value="{{ $food->food_menu }}"/>
                 </div>
             </div>
             <div class="row mb-3" >
-                <label class="col-sm-2 col-lable-form">Student Email</label>
+                <label class="col-sm-2 col-lable-form">Food Price</label>
                 <div class="col-sm-10">
-                    <input type="text" name="student_email" class="form-control" value="{{ $student->student_email }}"/>
-                </div>
-            </div>
-            <div class="row mb-4" >
-                <label class="col-sm-2 col-lable-form">Student Gender</label>
-                <div class="col-sm-10">
-                    <select name="student_gender" class="form-control">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-4" >
-                <label class="col-sm-2 col-lable-form">Student Image</label>
-                <div class="col-sm-10">
-                    <input type="file" name="student_image"/>
-                    <img src="{{ asset ('images/' . $student->student_image) }}" alt="" width="100" class="img-thumbnail" />
-                    <input type="hidden" name="hidden_student_image" value="{{ $student->student_image }}">
+                    <input type="text" name="food_price" class="form-control" value="{{ $food->food_price }}"/>
                 </div>
             </div>
             <div class="text-center">
-                <input type="hidden" name="hidden_id" value="{{ $student->id }}" />
+                <input type="hidden" name="hidden_id" value="{{ $food->id }}" />
                 <input type="submit" class="btn btn-primary" value="Add" />
             </div>
         </form>
@@ -47,7 +31,7 @@
 </div>
 
 <script>
-    document.getElementByName('student_gender')[0].value = "{{ $student->student_gender }}";
+
 </script>
 
 @endsection ('content')

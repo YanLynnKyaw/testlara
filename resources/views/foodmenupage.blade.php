@@ -85,7 +85,10 @@
             </div>
             
             <div class="row">
+<<<<<<< HEAD
                     
+=======
+>>>>>>> role-change-dropdown
                 <!-- <div class="food_menu">
                     <h4>Break Fast</h4>
                     <ul>
@@ -96,11 +99,19 @@
                     </ul>
                 </div> -->
                 <div class="food_menu">
+<<<<<<< HEAD
                     <ul>
                             <h4>{{ $record->category }}</h4>
                             @php $firstCategory = true @endphp
                     @foreach ($breakfastData as $record)
                         @if ($firstCategory)
+=======
+                    @php $firstCategory = true @endphp
+                    @foreach ($breakfastData as $record)
+                        @if ($firstCategory)
+                            <h4>{{ $record->category }}</h4>
+                            <ul>
+>>>>>>> role-change-dropdown
                             @php $firstCategory = false @endphp
                         @endif
                         <li>{{ $record->food_menu }}</li>
@@ -108,14 +119,23 @@
                     </ul>
                 </div>
                 <div class="food_price">
+<<<<<<< HEAD
                     <ul>
                         <h4>Price</h4>
+=======
+                    <h4>Price</h4>
+                    <ul>
+>>>>>>> role-change-dropdown
                         @foreach($breakfastData as $record)
                             <li>{{ $record->food_price }}</li>
                         @endforeach
                     </ul>
                 </div>
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> role-change-dropdown
                 <!-- <div class="food_menu">
                     <h4>Lunch</h4>
                     <ul>
