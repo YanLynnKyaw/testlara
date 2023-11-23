@@ -68,7 +68,7 @@
         <main>
             <div class="header">
                 <div class="left">
-                    <h1>Dashboard | Welcome {{ Auth::user()->name }}</h1>
+                    <h1>UserManagement | Welcome {{ Auth::user()->name }}</h1>
                 </div>
                 <a href="#" class="report">
                     <i class='bx bx-cloud-download'></i>
@@ -131,6 +131,7 @@
                                                         <select name="role" onchange="this.form.submit()">
                                                             <option value="admin" {{ $user->hasRole('admin') ? 'selected' : '' }}>Admin</option>
                                                             <option value="editor" {{ $user->hasRole('editor') ? 'selected' : '' }}>Editor</option>
+                                                            <option value="editor" {{ $user->hasRole('guest') ? 'selected' : '' }}>Guest</option>
                                                         </select>
                                                     </form>
                                                 </details>

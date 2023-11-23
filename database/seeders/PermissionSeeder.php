@@ -33,6 +33,15 @@ class PermissionSeeder extends Seeder
             ]
         );
 
+        $role_guest = Role::UpdateOrCreate(
+            [
+                'name' => 'guest',
+            ],
+            [
+                'name' => 'guest'
+            ]
+        );
+
         $permission = Permission::UpdateOrCreate(
             [
                 'name' => 'ed_de',
@@ -49,14 +58,26 @@ class PermissionSeeder extends Seeder
                 'name' => 'view_only'
             ]
         );
+        $permission3 = Permission::UpdateOrCreate(
+            [
+                'name' => 'view_only_forguest',
+            ],
+            [
+                'name' => 'view_only_forguest'
+            ]
+        );
 
         $role_admin->givePermissionTo($permission);
         $role_admin->givePermissionTo($permission2);
         $role_editor->givePermissionTo($permission2);
+        $role_guest->givePermissionTo($permission3);
 
         $user = User::find(1);
         $user2 = User::find(4);
+        $user3 = User::find(14);
+        
         $user->assignRole('admin');
         $user2->assignRole('editor');
+        $user3->assignRole('guest');
     }
 }

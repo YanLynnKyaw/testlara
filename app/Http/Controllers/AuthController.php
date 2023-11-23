@@ -41,6 +41,8 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
 
         $user->save();
+        $role = Role::where('name', 'guest')->first();
+        $user->assignRole($role);
 
         return back()->with('success', 'Register Successful');
     }
@@ -87,7 +89,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        $role = Role::where('name', 'editor')->first();
+        $role = Role::where('name', 'guest')->first();
         $user->assignRole($role);
 
 
@@ -97,18 +99,18 @@ class AuthController extends Controller
     public function updateRole(Request $request, $userId)
     {
         $user = User::findOrFail($userId);
-    
+
         $request->validate([
             'role' => 'required|in:admin,editor',
         ]);
-    
+
         // Remove existing roles (optional, depending on your application logic)
         $user->syncRoles([]);
-    
+
         // Assign the selected role
         $role = Role::where('name', $request->input('role'))->first();
         $user->assignRole($role);
-    
+
         return redirect()->route('users.index')->with('success', 'User role updated successfully');
     }
 

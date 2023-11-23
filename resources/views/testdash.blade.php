@@ -89,7 +89,7 @@
                         <h3>Soft Drink</h3>
                         <!-- <i class='bx bx-filter'></i>
                         <i class='bx bx-search'></i> -->
-                        @if(auth()->user()->can('ed_de'))
+                        @if(auth()->user()->can('ed_de','view_only')|| auth()->user()->can('view_only'))
                         <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
                         @endif
                         <!-- <form action="{{ route('logout') }}" method="POST">
@@ -103,6 +103,7 @@
                             <tr>
                                 <th><h2>Food_Menu</h2></th>
                                 <th><h2>Food_Price</h2></th>
+                                <th><h2>Actions</h2></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,7 +117,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
-                                    @if(auth()->user()->can('ed_de'))
+                                    @if(auth()->user()->can('ed_de')|| auth()->user()->can('view_only'))
                                         <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
                                         <input type="submit" class="newbtn1" value="Delete">
                                     @endif
@@ -142,7 +143,7 @@
                         <i class='bx bx-receipt'></i>
                         <h3>Lunch</h3>
 
-                        @if(auth()->user()->can('ed_de'))
+                        @if(auth()->user()->can('ed_de','view_only')|| auth()->user()->can('view_only'))
                             <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
                         @endif
                         <!-- <form action="{{ route('logout') }}" method="POST">
@@ -156,6 +157,7 @@
                             <tr>
                                 <th><h2>Food_Menu</h2></th>
                                 <th><h2>Food_Price</h2></th>
+                                <th><h2>Actions</h2></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -169,7 +171,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
-                                    @if(auth()->user()->can('ed_de'))
+                                    @if(auth()->user()->can('ed_de')|| auth()->user()->can('view_only'))
                                         <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
                                         <input type="submit" class="newbtn1" value="Delete">
                                     @endif
@@ -193,7 +195,7 @@
                         <i class='bx bx-receipt'></i>
                         <h3>BreakFast</h3>
 
-                        @if(auth()->user()->can('ed_de'))
+                        @if(auth()->user()->can('ed_de','view_only')|| auth()->user()->can('view_only'))
                             <a href="{{ route('food.create') }}" class="newbtn2">Add Food_Menu</a>
                         @endif
                     </div>
@@ -202,6 +204,7 @@
                             <tr>
                                 <th><h2>Food_Menu</h2></th>
                                 <th><h2>Food_Price</h2></th>
+                                <th><h2>Actions</h2></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -216,7 +219,7 @@
                                     @method('DELETE')
                                     <a href="{{ route('food.show', $row->id ) }}" class="newbtn"><span class="newbtn_top">View</span></a>
                                     
-                                    @if(auth()->user()->can('ed_de'))
+                                    @if(auth()->user()->can('ed_de')|| auth()->user()->can('view_only'))
                                         <a href="{{ route('food.edit', $row->id ) }}" class="newbtn"><span class="newbtn_top">Edit</span></a>
                                         <input type="submit" class="newbtn1" value="Delete">
                                     @endif

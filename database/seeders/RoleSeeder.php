@@ -29,6 +29,15 @@ class RoleSeeder extends Seeder
                 'name' => 'editor'
             ]
         );
+
+        Role::UpdateOrCreate(
+            [
+                'name' => 'guest',
+            ],
+            [
+                'name' => 'guest'
+            ]
+        );
        
         // Role::create(['name' => 'Admin']);
         // Role::create(['name' => 'Editor']);
