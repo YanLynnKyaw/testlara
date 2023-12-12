@@ -25,12 +25,6 @@
             <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
         </ul>
         <ul class="side-menu">
-            <!-- <li>
-                <a href="#" class="logout">
-                    <i class='bx bx-log-out' ></i>
-                    Logout
-                </a>
-            </li> -->
             <li class="de">
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

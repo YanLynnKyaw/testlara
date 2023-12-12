@@ -28,6 +28,7 @@ body{
 }
 .navbar_sec{
     margin-top: 10px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     font-size: 15px;
@@ -104,7 +105,7 @@ li{
 .food_menu{
     width: 200px;
 
-    margin: 10px;
+    
     /* border: solid #555843 2px;
     border-radius: 20px;
     box-shadow:2px 2px 2px 2px #515048;
