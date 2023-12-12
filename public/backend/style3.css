@@ -48,6 +48,7 @@ h1{
     flex-wrap: wrap;
     flex-direction: column;
     height: 100%;
+
     
 }
 h4{
@@ -82,8 +83,13 @@ footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    
+}
 
+.mm{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 ul{
     list-style: none;
@@ -96,7 +102,7 @@ li{
 }
 .food_menu{
     width: 200px;
-    margin: 10px;
+
     /* border: solid #555843 2px;
     border-radius: 20px;
     box-shadow:2px 2px 2px 2px #515048;
@@ -105,7 +111,7 @@ li{
 }
 .food_price{
     width: 130px;
-    margin: 10px;
+    
     /* border: solid #555843 2px;
     border-radius: 20px;
     box-shadow:2px 2px 2px 2px #515048;
