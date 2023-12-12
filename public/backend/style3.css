@@ -48,6 +48,7 @@ h1{
     flex-wrap: wrap;
     flex-direction: column;
     height: 100%;
+
     
 }
 h4{
@@ -83,12 +84,21 @@ footer{
     flex-wrap: wrap;
     justify-content: space-around;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 
 =======
     
+=======
+}
+>>>>>>> role-change-dropdown
 
+.mm{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 >>>>>>> role-change-dropdown
 ul{
@@ -102,10 +112,14 @@ li{
 }
 .food_menu{
     width: 200px;
+<<<<<<< HEAD
     margin: 10px;
 <<<<<<< HEAD
     
 =======
+>>>>>>> role-change-dropdown
+=======
+
 >>>>>>> role-change-dropdown
     /* border: solid #555843 2px;
     border-radius: 20px;
@@ -115,7 +129,7 @@ li{
 }
 .food_price{
     width: 130px;
-    margin: 10px;
+    
     /* border: solid #555843 2px;
     border-radius: 20px;
     box-shadow:2px 2px 2px 2px #515048;
