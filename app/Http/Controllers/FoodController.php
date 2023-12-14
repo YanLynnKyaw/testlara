@@ -47,11 +47,13 @@ class FoodController extends Controller
         $request->validate([
             'food_menu'     =>  'required',
             'food_price'    =>  'required'
+            
         ]);
         $food = new Food;
         $food->food_menu    =   $request->food_menu;
         $food->food_price   =   $request->food_price;
         $food->category = $request->category;
+        
 
         $food->save();
 
@@ -86,13 +88,17 @@ class FoodController extends Controller
     {
         $request->validate([
             'food_menu'     =>  'required',
-            'food_price'   =>  'required'
+            'food_price'    =>  'required',
+            'category'      => 'required'
         ]);
 
         $food = Food::find($request->hidden_id);
         $food->food_menu = $request->food_menu;
         $food->food_price = $request->food_price;
-        $food->category = $request->category; 
+        // $food->category = $request->category; 
+        if ($request->has('category')) {
+            $food->category = $request->category; // Conditional assignment of category field
+        }
         $food->save();
 
         return redirect()->route('food.index')->with('success','A Menu has been updated');

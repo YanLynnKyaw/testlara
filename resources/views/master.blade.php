@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1 class="text-center mt-3 mb-3 text-primary">
-        <b>Laravel Data</b> 
+        <b>Food Content</b> 
     </h1>
 
     @yield ('content')

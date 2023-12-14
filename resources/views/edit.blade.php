@@ -21,6 +21,7 @@
                     <input type="text" name="food_price" class="form-control" value="{{ $food->food_price }}"/>
                 </div>
             </div>
+            <input type="hidden" name="category" value="{{ $food->category }}">
             <div class="text-center">
                 <input type="hidden" name="hidden_id" value="{{ $food->id }}" />
                 <input type="submit" class="btn btn-primary" value="Add" />
